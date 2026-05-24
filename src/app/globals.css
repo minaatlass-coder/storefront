@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0f1b2d;
+  --color-ink-soft: #2a3850;
+  --color-muted: #6b7280;
+  --color-sand: #faf8f4;
+  --color-cream: #ffffff;
+  --color-border: #e9e4d8;
+  --color-emerald: #0e6e5c;
+  --color-emerald-deep: #08574a;
+  --color-warm: #c28846;
+
+  --color-background: var(--color-sand);
+  --color-foreground: var(--color-ink);
+
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-arabic: var(--font-arabic), "Segoe UI", Tahoma, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+}
+
+html {
+  background: var(--color-sand);
+  color: var(--color-ink);
+}
+
+body {
+  background: var(--color-sand);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Arabic text spans */
+.font-arabic,
+[lang="ar"] {
+  font-family: var(--font-arabic);
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* Brand serif for hero headlines */
+.font-serif {
+  font-family: var(--font-serif);
+  font-feature-settings: "ss01" 1, "ss02" 1;
+}
+
+/* Smooth interactions */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-emerald);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Bandeau d’annonce — défilement horizontal infini */
+@keyframes announcement-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.announcement-marquee-track {
+  animation: announcement-marquee 58s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announcement-marquee-track {
+    animation: none;
+  }
+}
+
+.announcement-marquee-wrap:hover .announcement-marquee-track {
+  animation-play-state: paused;
+}

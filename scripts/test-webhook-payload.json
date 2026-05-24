@@ -1,0 +1,25 @@
+{
+  "event": "order_created",
+  "order_id": "SAH-TEST-CURSOR",
+  "created_at": "2026-05-13T12:00:00.000Z",
+  "name": "Test Connexion",
+  "phone_normalized": "212612345678",
+  "phone_raw": "0612345678",
+  "items": [
+    {
+      "sku": "vitalstride",
+      "name_fr": "VitalStride — Confort articulations & dos",
+      "qty": 1,
+      "unit_price": 279,
+      "line_total": 279
+    }
+  ],
+  "items_subtotal": 279,
+  "upsell": null,
+  "order_total": 279,
+  "currency": "MAD",
+  "source": "website",
+  "user_agent": "curl-test",
+  "referrer": "",
+  "ip_hash": "testhash"
+}

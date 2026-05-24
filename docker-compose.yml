@@ -1,0 +1,16 @@
+# Test local : docker compose up --build
+# EasyPanel : préférer le Dockerfile via l’UI (voir DEPLOY-EASYPANEL.md)
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      API_URL: ${API_URL:-http://host.docker.internal:4000}
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
