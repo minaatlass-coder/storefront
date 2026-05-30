@@ -57,6 +57,8 @@ export const fr = {
       "{{brand}} est une parapharmacie en ligne marocaine : trois compléments de confort santé pour adultes — articulations & dos, sommeil & stress, digestion — formulés en laboratoire, aux compositions documentées, payés à la livraison.",
     ctaShop: "Découvrir nos 3 produits",
     ctaApproach: "Notre approche",
+    heroImageAlt:
+      "Compléments alimentaires Sahhaonline — parapharmacie en ligne au Maroc",
     docTitle: "Documentation laboratoire",
     docBody:
       "Composition complète, dosages utiles, ingrédients listés sur chaque page produit — la transparence d'une parapharmacie, pas une publicité miracle.",

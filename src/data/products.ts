@@ -67,7 +67,7 @@ export const products: Record<ProductSlug, Product> = {
     upsellPrice: 219,
     upsellHook:
       "Les douleurs articulaires perturbent souvent le sommeil et créent des tensions musculaires — complétez votre routine.",
-    image: null,
+    image: "/products/vitalstride.jpg",
   },
 
   restwave: {
@@ -128,7 +128,7 @@ export const products: Record<ProductSlug, Product> = {
     upsellPrice: 139,
     upsellHook:
       "Le stress qui ne descend pas la nuit aggrave les tensions du jour — ajoutez la routine du soir à votre commande.",
-    image: null,
+    image: "/products/restwave.jpg",
   },
 
   floraease: {
@@ -195,7 +195,7 @@ export const products: Record<ProductSlug, Product> = {
     upsellPrice: 149,
     upsellHook:
       "Le stress et la fatigue alourdissent la digestion — complétez le triangle confort : bouger, dormir, digérer.",
-    image: null,
+    image: "/products/floraease.jpg",
   },
 };
 

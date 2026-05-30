@@ -1,15 +1,19 @@
 # Product photos
 
-Drop real product photos here when you have them, then update
-`src/data/products.ts` to point at them.
+Drop real product photos here when you have them.
 
-## Naming
+## Naming (obligatoire)
 
-Use the product slug + extension:
+Use the product slug + extension — **exact filename**:
 
 - `vitalstride.jpg` (or `.webp`)
 - `restwave.jpg`
 - `floraease.jpg`
+
+The site already points to these paths in `src/data/products.ts`.  
+**You only need to drop the file here** — no code change required.
+
+If the file is missing, a colored placeholder with the product name is shown instead.
 
 ## Recommended specs
 
@@ -27,13 +31,9 @@ Use the product slug + extension:
 ## Wiring a photo
 
 1. Drop the file in this folder, e.g. `public/products/vitalstride.jpg`.
-2. Edit `src/data/products.ts`:
+2. Redeploy (or refresh locally). The photo appears on home, boutique, PDP, cart, etc.
 
-```ts
-image: "/products/vitalstride.jpg", // was: null
-```
-
-3. That's it — the placeholder gradient is replaced by the photo on every page (home, collection, PDP, drawer, cross-sells, upsell modal, thank-you summary).
+Paths are already set in `src/data/products.ts` as `/products/{slug}.jpg`.
 
 ## Photos des 3 sections PDP (douleur / routine / confiance)
 

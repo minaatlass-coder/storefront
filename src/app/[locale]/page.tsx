@@ -1,11 +1,11 @@
-import Image from "next/image";
 import Link from "next/link";
 import { productList } from "@/data/products";
-import { siteBrand } from "@/data/site";
+import { site, siteBrand } from "@/data/site";
 import type { Locale } from "@/i18n/config";
 import { fillBrand, getMessages, localeFromUnknown } from "@/messages";
 import { href } from "@/lib/href";
 import { ProductCard } from "@/components/product-card";
+import { BrandImage } from "@/components/brand-image";
 import { HomeFaq } from "@/components/home-faq";
 import { HomeTrustBar } from "@/components/home-trust-bar";
 import { TrustStrip } from "@/components/trust-strip";
@@ -55,7 +55,13 @@ export default async function Home({ params }: Props) {
           </div>
 
           <div className="relative">
-            <div className="aspect-[5/4] w-full rounded-3xl border border-border bg-gradient-to-br from-cream via-sand to-[#EEE8DA]" />
+            <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl border border-border">
+              <BrandImage
+                src={site.images.homeHero}
+                alt={m.home.heroImageAlt}
+                priority
+              />
+            </div>
             <div className="absolute -bottom-6 left-6 right-6 rounded-2xl border border-border bg-cream p-5 shadow-sm sm:left-10 sm:right-10">
               <p className="text-xs uppercase tracking-[0.18em] text-muted">
                 {m.home.docTitle}
@@ -96,14 +102,10 @@ export default async function Home({ params }: Props) {
                 locale === "ar" ? "lg:order-1" : ""
               }`}
             >
-              <div className="aspect-[4/5] sm:aspect-[5/4]">
-                <Image
-                  src="/brand/home-approach.jpg"
+              <div className="relative aspect-[4/5] sm:aspect-[5/4]">
+                <BrandImage
+                  src={site.images.homeApproach}
                   alt={m.home.approachImageAlt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority={false}
                 />
               </div>
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/50 to-transparent px-5 py-6">

@@ -6,6 +6,13 @@ export const site = {
   brandAr: "صحة أونلاين",
   /** Pictogramme unique (header / footer) — identique FR et AR. */
   logoMark: "/brand/logo-mark.svg",
+  /** Photos de marque sous public/brand/ — voir public/brand/README.md */
+  images: {
+    /** Grande photo à droite du hero (accueil). */
+    homeHero: "/brand/home-hero.jpg",
+    /** Photo section « Notre approche ». */
+    homeApproach: "/brand/home-approach.jpg",
+  },
   domain: "sahha.online",
   email: "contact@sahha.online",
   phone: "+212 5 00 00 00 00",
