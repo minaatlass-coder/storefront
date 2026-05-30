@@ -1,1 +1,1 @@
-order_id,event_id,created_at,name,address,phone_raw,phone_normalized,items_summary,items_subtotal,upsell_sku,upsell_price,upsell_accepted,order_total,currency,source,source_url,utm_source,utm_medium,utm_campaign,fbp,fbc,ttclid,gclid,status,note,user_agent,referrer,ip_hash
+order_id,event_id,created_at,name,address,phone_raw,phone_normalized,items_summary,items_subtotal,upsell_sku,upsell_price,upsell_accepted,order_total,currency,source,source_url,utm_source,utm_medium,utm_campaign,fbp,fbc,ttclid,gclid,status,note,user_agent,referrer,ip_hash,tracking_number

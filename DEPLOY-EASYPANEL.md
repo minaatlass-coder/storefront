@@ -70,7 +70,7 @@ Variables → copier depuis `storefront/.env.example` :
 
 ```env
 NODE_ENV=production
-API_URL=https://api.sahha.online
+API_URL=http://sahhaonline_backend:4000
 NEXT_PUBLIC_SITE_URL=https://sahha.online
 NEXT_PUBLIC_META_PIXEL_ID=...
 NEXT_PUBLIC_TIKTOK_PIXEL_ID=...
@@ -79,10 +79,10 @@ NEXT_PUBLIC_GOOGLE_TAG_ID=...
 
 `API_URL` : Next.js proxifie `/api/order` et `/api/track` vers le backend (le navigateur appelle toujours `sahha.online/api/...`).
 
-Option réseau interne (sans passer par le domaine public) :
+**Important checkout :** utilisez l’URL **interne** Docker (nom du service backend dans EasyPanel, ex. `sahhaonline_backend`) — pas `https://api.sahha.online` depuis le conteneur storefront, sinon latence / timeouts avant l'offre unique.
 
 ```env
-API_URL=http://NOM_DU_SERVICE_BACKEND:4000
+API_URL=http://sahhaonline_backend:4000
 ```
 
 ## 6. Ordre de déploiement

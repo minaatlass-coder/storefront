@@ -16,13 +16,11 @@ import { createEventId, track } from "@/lib/analytics";
 import { getMarketingContext } from "@/lib/marketing-context";
 import { getLineTitle } from "@/lib/product-locale";
 import { normalizePhone, validateAddress, validateName } from "@/lib/phone";
-import { pickUpsell } from "@/lib/order";
+import { generateOrderId, pickUpsell } from "@/lib/order";
 import type { ProductSlug } from "@/lib/types";
 import type { Messages } from "@/messages";
 import { t } from "@/messages";
 import { useMessages } from "./messages-context";
-
-const UPSELL_OPEN_DELAY_MS = 12_000;
 
 function translateServerError(messages: Messages, err: unknown): string {
   if (typeof err !== "string" || !err.includes(".")) {
@@ -39,7 +37,7 @@ export function CheckoutModal() {
   const items = useCart((s) => s.items);
   const closeCheckout = useCart((s) => s.closeCheckout);
   const setLastOrder = useCart((s) => s.setLastOrder);
-  const openUpsell = useCart((s) => s.openUpsell);
+  const showUpsellAfterOrder = useCart((s) => s.showUpsellAfterOrder);
   const clear = useCart((s) => s.clear);
   const router = useRouter();
 
@@ -97,7 +95,7 @@ export function CheckoutModal() {
     if (!validate()) return;
     if (lines.length === 0) return;
 
-    setSubmitting(true);
+    const upsellSlug: ProductSlug | null = pickUpsell(items);
     const eventId = createEventId("purchase");
     const context = getMarketingContext();
     track("submit_order_attempt", {
@@ -106,6 +104,89 @@ export function CheckoutModal() {
       event_id: eventId,
     });
 
+    const orderId = generateOrderId();
+    const phoneRes = normalizePhone(phone);
+    const normalizedPhone = phoneRes.ok && phoneRes.phone ? phoneRes.phone : phone.trim();
+    const requestBody = {
+      event: "order_created",
+      event_id: eventId,
+      order_id: orderId,
+      source: "website",
+      source_url: typeof window !== "undefined" ? window.location.href : "",
+      context,
+      name,
+      address,
+      phone,
+      items: lines.map((l) => ({ slug: l.slug, qty: l.qty })),
+      website,
+    };
+
+    if (upsellSlug) {
+      showUpsellAfterOrder(
+        {
+          order_id: orderId,
+          name: name.trim(),
+          address: address.trim(),
+          phone: normalizedPhone,
+          created_at: new Date().toISOString(),
+          items: lines.map((l) => ({
+            sku: l.slug,
+            name_fr: l.nameFr,
+            qty: l.qty,
+            unit_price: l.unitPrice,
+            line_total: l.lineTotal,
+          })),
+          items_subtotal: subtotal,
+          upsell: null,
+          total: subtotal,
+        },
+        upsellSlug,
+      );
+
+      void fetch("/api/order", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(requestBody),
+        keepalive: true,
+      })
+        .then(async (res) => {
+          let data: Record<string, unknown> = {};
+          try {
+            data = (await res.json()) as Record<string, unknown>;
+          } catch {
+            data = { error: "invalid_json" };
+          }
+          if (!res.ok || !data.ok) {
+            track("submit_order_error", {
+              event_id: eventId,
+              status: res.status,
+              order_id: orderId,
+              error: data.error,
+            });
+            return;
+          }
+          track("submit_order_success", {
+            event_id: eventId,
+            order_id: orderId,
+            total: subtotal,
+            currency: "MAD",
+            name: name.trim(),
+            address: address.trim(),
+            phone: normalizedPhone,
+            item_count: lines.length,
+          });
+        })
+        .catch((err) => {
+          track("submit_order_error", {
+            event_id: eventId,
+            order_id: orderId,
+            error: String(err),
+          });
+        });
+      return;
+    }
+
+    setSubmitting(true);
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 30_000);
 
@@ -113,18 +194,7 @@ export function CheckoutModal() {
       const res = await fetch("/api/order", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          event: "order_created",
-          event_id: eventId,
-          source: "website",
-          source_url: typeof window !== "undefined" ? window.location.href : "",
-          context,
-          name,
-          address,
-          phone,
-          items: lines.map((l) => ({ slug: l.slug, qty: l.qty })),
-          website,
-        }),
+        body: JSON.stringify(requestBody),
         signal: controller.signal,
       });
 
@@ -177,18 +247,9 @@ export function CheckoutModal() {
       });
 
       setSubmitting(false);
-
-      const upsellSlug: ProductSlug | null = pickUpsell(items);
       closeCheckout();
-
-      if (upsellSlug) {
-        window.setTimeout(() => {
-          openUpsell(data.order_id as string, upsellSlug);
-        }, UPSELL_OPEN_DELAY_MS);
-      } else {
-        clear();
-        router.push(href(locale, `/merci/${data.order_id as string}`));
-      }
+      clear();
+      router.push(href(locale, `/merci/${data.order_id as string}`));
     } catch (err) {
       const aborted =
         err instanceof DOMException && err.name === "AbortError";

@@ -17,7 +17,7 @@ import type { ProductSlug } from "@/lib/types";
 import { ProductImage } from "./product-image";
 import { useMessages } from "./messages-context";
 
-const COUNTDOWN_SECONDS = 12;
+const COUNTDOWN_SECONDS = 6;
 
 /** Ne monte les hooks lourds que lorsque l’upsell est réellement actif (slug + commande connus). */
 export function UpsellModal() {
@@ -60,8 +60,6 @@ function UpsellModalActive({
 
   useEffect(() => {
     if (!open) return;
-    setSeconds(COUNTDOWN_SECONDS);
-    setSubmitting(false);
     track("upsell_shown", { slug, order_id: orderId });
 
     const prev = document.body.style.overflow;
@@ -83,54 +81,51 @@ function UpsellModalActive({
     }
   }, [seconds, open, orderId, slug, finish]);
 
-  async function handleAccept() {
+  function handleAccept() {
     if (submitting) return;
     setSubmitting(true);
-    const controller = new AbortController();
-    const tid = setTimeout(() => controller.abort(), 20_000);
     const eventId = `${orderId}-upsell-${slug}`;
-    try {
-      const res = await fetch("/api/order", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          event: "upsell_added",
-          event_id: eventId,
-          order_id: orderId,
-          upsell_slug: slug,
-          source_url: typeof window !== "undefined" ? window.location.href : "",
-          context: getMarketingContext(),
-        }),
-        signal: controller.signal,
-      });
-      if (res.ok) {
-        applyUpsellAccepted(slug);
-        track("upsell_accepted", {
-          slug,
-          order_id: orderId,
-          event_id: eventId,
-          value: products[slug].upsellPrice,
-          currency: "MAD",
-        });
-      } else {
-        track("upsell_accepted", {
-          slug,
-          order_id: orderId,
-          event_id: eventId,
-          webhook_status: res.status,
-        });
-      }
-    } catch (err) {
-      track("upsell_accepted", {
-        slug,
-        order_id: orderId,
+    applyUpsellAccepted(slug);
+    track("upsell_accepted", {
+      slug,
+      order_id: orderId,
+      event_id: eventId,
+      value: products[slug].upsellPrice,
+      currency: "MAD",
+    });
+
+    void fetch("/api/order", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        event: "upsell_added",
         event_id: eventId,
-        error: String(err),
+        order_id: orderId,
+        upsell_slug: slug,
+        source_url: typeof window !== "undefined" ? window.location.href : "",
+        context: getMarketingContext(),
+      }),
+      keepalive: true,
+    })
+      .then((res) => {
+        if (!res.ok) {
+          track("upsell_accepted", {
+            slug,
+            order_id: orderId,
+            event_id: eventId,
+            webhook_status: res.status,
+          });
+        }
+      })
+      .catch((err) => {
+        track("upsell_accepted", {
+          slug,
+          order_id: orderId,
+          event_id: eventId,
+          error: String(err),
+        });
       });
-    } finally {
-      clearTimeout(tid);
-      setSubmitting(false);
-    }
+
     finish(orderId);
   }
 

@@ -52,6 +52,8 @@ interface CartState {
   closeCheckout: () => void;
   openUpsell: (orderId: string, slug: ProductSlug) => void;
   closeUpsell: () => void;
+  /** Ferme checkout et ouvre l’upsell en une seule mise à jour (réactivité immédiate). */
+  showUpsellAfterOrder: (order: LastOrder, slug: ProductSlug) => void;
   setLastOrder: (order: LastOrder | null) => void;
   applyUpsellAccepted: (slug: ProductSlug) => void;
   setHydrated: (v: boolean) => void;
@@ -95,6 +97,14 @@ export const useCart = create<CartState>()(
           upsellOpen: true,
           pendingOrderId: orderId,
           pendingUpsellSlug: slug,
+        }),
+      showUpsellAfterOrder: (order, slug) =>
+        set({
+          checkoutOpen: false,
+          upsellOpen: true,
+          pendingOrderId: order.order_id,
+          pendingUpsellSlug: slug,
+          lastOrder: order,
         }),
       closeUpsell: () =>
         set({

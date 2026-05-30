@@ -1,12 +1,19 @@
-import { randomBytes } from "node:crypto";
 import type { ProductSlug } from "@/lib/types";
 
 export type Items = Partial<Record<ProductSlug, number>>;
 
 export function generateOrderId(date = new Date()): string {
   const ymd = date.toISOString().slice(0, 10).replace(/-/g, "");
-  const rand = randomBytes(2).toString("hex").toUpperCase();
+  const bytes = new Uint8Array(2);
+  crypto.getRandomValues(bytes);
+  const rand = Array.from(bytes, (b) => b.toString(16).padStart(2, "0"))
+    .join("")
+    .toUpperCase();
   return `SAH-${ymd}-${rand}`;
+}
+
+export function isValidOrderId(s: unknown): s is string {
+  return typeof s === "string" && /^SAH-\d{8}-[0-9A-F]{4}$/.test(s);
 }
 
 const SLUGS: ProductSlug[] = ["vitalstride", "restwave", "floraease"];

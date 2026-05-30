@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const PROXY_TIMEOUT_MS = 30_000;
+/** Keep checkout snappy; backend should answer in <2s when API_URL is reachable. */
+const PROXY_TIMEOUT_MS = 15_000;
 
 /**
  * Proxie /api/order vers le backend (API_URL).
