@@ -33,14 +33,14 @@ export function productSubtitleLangAttrs() {
   return { lang: "ar", dir: "rtl" as const };
 }
 
-/** Alignement à droite des noms produits en page arabe (texte LTR). */
+/** Alignement à droite en page arabe (text-right, pas text-end : en RTL text-end = gauche). */
 export function productNameClassName(locale: Locale): string {
-  return locale === "ar" ? "block w-full text-end" : "";
+  return locale === "ar" ? "block w-full text-right" : "";
 }
 
-/** Alignement à droite du sous-titre arabe en page arabe. */
+/** Sous-titre arabe sous le nom, aligné à droite comme le titre. */
 export function productSubtitleClassName(locale: Locale): string {
-  return locale === "ar" ? "block w-full text-end" : "";
+  return locale === "ar" ? "block w-full text-right" : "";
 }
 
 export function getProductCopy(product: Product, locale: Locale) {

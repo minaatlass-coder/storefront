@@ -69,7 +69,7 @@ export function ProductSectionImage({
         />
       ) : (
         <div
-          className={`absolute inset-0 flex flex-col justify-center p-8 ${locale === "ar" ? "items-end text-end" : "items-center text-center"}`}
+          className={`absolute inset-0 flex flex-col justify-center p-8 ${locale === "ar" ? "items-start text-right" : "items-center text-center"}`}
         >
           <p className="text-[10px] uppercase tracking-[0.22em] text-white/85">
             {label}

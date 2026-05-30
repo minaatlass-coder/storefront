@@ -88,7 +88,7 @@ export function RoutineSuggestions({ locale }: { locale: Locale }) {
                 {bundle.slugs.map((slug) => (
                   <li
                     key={slug}
-                    className={`rounded-xl bg-sand px-4 py-3 text-sm font-medium text-ink ${locale === "ar" ? "text-end" : ""}`}
+                    className={`rounded-xl bg-sand px-4 py-3 text-sm font-medium text-ink ${locale === "ar" ? "text-right" : ""}`}
                   >
                     <span {...productNameLangAttrs(locale)}>
                       {getProductTitleShort(products[slug], locale)}
