@@ -15,7 +15,9 @@ import {
   getProductCopy,
   getProductSubtitle,
   getProductTitleShort,
+  productNameClassName,
   productNameLangAttrs,
+  productSubtitleClassName,
   productSubtitleLangAttrs,
 } from "@/lib/product-locale";
 import { getMessages, t } from "@/messages";
@@ -98,14 +100,14 @@ export default async function ProductPage({ params }: Props) {
           </p>
           <h1
             {...productNameLangAttrs(locale)}
-            className="mt-3 font-serif text-3xl leading-tight text-ink sm:text-4xl"
+            className={`mt-3 font-serif text-3xl leading-tight text-ink sm:text-4xl ${productNameClassName(locale)}`}
           >
             {titleShort}
           </h1>
           {subtitle ? (
             <p
               {...productSubtitleLangAttrs()}
-              className="mt-1 text-base text-ink-soft"
+              className={`mt-1 text-base text-ink-soft ${productSubtitleClassName(locale)}`}
             >
               {subtitle}
             </p>

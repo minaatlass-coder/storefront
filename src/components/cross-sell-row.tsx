@@ -3,7 +3,12 @@ import type { Locale } from "@/i18n/config";
 import type { Product } from "@/lib/types";
 import { formatMad } from "@/lib/format";
 import { href } from "@/lib/href";
-import { getProductCopy, getProductTitleShort } from "@/lib/product-locale";
+import {
+  getProductCopy,
+  getProductTitleShort,
+  productNameClassName,
+  productNameLangAttrs,
+} from "@/lib/product-locale";
 import type { Messages } from "@/messages";
 import { t } from "@/messages";
 import { AddToCartButton } from "./add-to-cart-button";
@@ -89,7 +94,12 @@ function FullTile({
       </Link>
       <div className="flex flex-1 flex-col px-1 pt-4 pb-1">
         <Link href={href(locale, path)}>
-          <h3 className="font-serif text-lg text-ink hover:text-emerald">{title}</h3>
+          <h3
+            {...productNameLangAttrs(locale)}
+            className={`font-serif text-lg text-ink hover:text-emerald ${productNameClassName(locale)}`}
+          >
+            {title}
+          </h3>
         </Link>
         <p className="mt-1 line-clamp-2 text-xs text-ink-soft">{copy.tagline}</p>
         <div className="mt-4 flex items-center justify-between gap-3">
@@ -130,7 +140,10 @@ function CompactTile({
       </Link>
       <div className="min-w-0 flex-1">
         <Link href={href(locale, path)}>
-          <p className="truncate text-sm font-semibold text-ink hover:text-emerald">
+          <p
+            {...productNameLangAttrs(locale)}
+            className={`truncate text-sm font-semibold text-ink hover:text-emerald ${productNameClassName(locale)}`}
+          >
             {title}
           </p>
         </Link>

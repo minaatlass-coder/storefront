@@ -6,7 +6,11 @@ import { useCart, getCartLines, getSubtotal } from "@/lib/cart-store";
 import { products, productList } from "@/data/products";
 import { formatMad } from "@/lib/format";
 import { href } from "@/lib/href";
-import { getLineTitle } from "@/lib/product-locale";
+import {
+  getLineTitle,
+  productNameClassName,
+  productNameLangAttrs,
+} from "@/lib/product-locale";
 import { track } from "@/lib/analytics";
 import { t } from "@/messages";
 import { CrossSellRow } from "./cross-sell-row";
@@ -139,7 +143,10 @@ export function CartDrawer() {
                     </Link>
                     <div className="flex min-w-0 flex-1 flex-col">
                       <Link href={href(locale, linePath)} onClick={closeDrawer}>
-                        <p className="truncate text-sm font-semibold text-ink hover:text-emerald">
+                        <p
+                          {...productNameLangAttrs(locale)}
+                          className={`truncate text-sm font-semibold text-ink hover:text-emerald ${productNameClassName(locale)}`}
+                        >
                           {getLineTitle(p, locale)}
                         </p>
                       </Link>

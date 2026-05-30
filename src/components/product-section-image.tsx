@@ -2,7 +2,11 @@ import Image from "next/image";
 import type { Locale } from "@/i18n/config";
 import type { Product } from "@/lib/types";
 import type { ProductSectionId } from "@/data/product-sections";
-import { getProductTitleShort } from "@/lib/product-locale";
+import {
+  getProductTitleShort,
+  productNameClassName,
+  productNameLangAttrs,
+} from "@/lib/product-locale";
 
 const gradientByCategory = {
   joints:
@@ -64,11 +68,16 @@ export function ProductSectionImage({
           priority={priority}
         />
       ) : (
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+        <div
+          className={`absolute inset-0 flex flex-col justify-center p-8 ${locale === "ar" ? "items-end text-end" : "items-center text-center"}`}
+        >
           <p className="text-[10px] uppercase tracking-[0.22em] text-white/85">
             {label}
           </p>
-          <p className="mt-4 font-serif text-2xl leading-tight text-white drop-shadow-sm sm:text-3xl">
+          <p
+            {...productNameLangAttrs(locale)}
+            className={`mt-4 font-serif text-2xl leading-tight text-white drop-shadow-sm sm:text-3xl ${productNameClassName(locale)}`}
+          >
             {titleShort}
           </p>
           <p className="mt-3 max-w-xs text-xs text-white/80 sm:text-sm">

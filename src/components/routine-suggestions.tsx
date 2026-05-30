@@ -2,7 +2,7 @@
 
 import { products } from "@/data/products";
 import type { Locale } from "@/i18n/config";
-import { getProductTitleShort } from "@/lib/product-locale";
+import { getProductTitleShort, productNameLangAttrs } from "@/lib/product-locale";
 import { useCart } from "@/lib/cart-store";
 import { track } from "@/lib/analytics";
 import type { ProductSlug } from "@/lib/types";
@@ -88,9 +88,11 @@ export function RoutineSuggestions({ locale }: { locale: Locale }) {
                 {bundle.slugs.map((slug) => (
                   <li
                     key={slug}
-                    className="rounded-xl bg-sand px-4 py-3 text-sm font-medium text-ink"
+                    className={`rounded-xl bg-sand px-4 py-3 text-sm font-medium text-ink ${locale === "ar" ? "text-end" : ""}`}
                   >
-                    {getProductTitleShort(products[slug], locale)}
+                    <span {...productNameLangAttrs(locale)}>
+                      {getProductTitleShort(products[slug], locale)}
+                    </span>
                   </li>
                 ))}
               </ul>

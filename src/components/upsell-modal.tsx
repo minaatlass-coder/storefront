@@ -10,7 +10,9 @@ import {
   getProductCopy,
   getProductSubtitle,
   getProductTitleShort,
+  productNameClassName,
   productNameLangAttrs,
+  productSubtitleClassName,
   productSubtitleLangAttrs,
 } from "@/lib/product-locale";
 import { track } from "@/lib/analytics";
@@ -210,14 +212,14 @@ function UpsellModalActive({
               <div className="min-w-0">
                 <p
                   {...productNameLangAttrs(locale)}
-                  className="text-sm font-semibold text-ink"
+                  className={`text-sm font-semibold text-ink ${productNameClassName(locale)}`}
                 >
                   {titleShort}
                 </p>
                 {subtitle ? (
                   <p
                     {...productSubtitleLangAttrs()}
-                    className="text-xs text-ink-soft"
+                    className={`text-xs text-ink-soft ${productSubtitleClassName(locale)}`}
                   >
                     {subtitle}
                   </p>

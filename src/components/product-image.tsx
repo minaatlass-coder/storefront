@@ -4,7 +4,14 @@ import Image from "next/image";
 import { useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Product } from "@/lib/types";
-import { getProductSubtitle, getProductTitleShort, productNameLangAttrs, productSubtitleLangAttrs } from "@/lib/product-locale";
+import {
+  getProductSubtitle,
+  getProductTitleShort,
+  productNameClassName,
+  productNameLangAttrs,
+  productSubtitleClassName,
+  productSubtitleLangAttrs,
+} from "@/lib/product-locale";
 
 const gradientByCategory = {
   joints:
@@ -33,7 +40,9 @@ function Placeholder({
   const titleSubtitle = getProductSubtitle(product, locale);
 
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+    <div
+      className={`absolute inset-0 flex flex-col justify-center p-6 ${locale === "ar" ? "items-end text-end" : "items-center text-center"}`}
+    >
       <p className="text-[10px] uppercase tracking-[0.22em] text-white/80">
         {product.category === "joints"
           ? "Articulations"
@@ -43,14 +52,14 @@ function Placeholder({
       </p>
       <p
         {...productNameLangAttrs(locale)}
-        className="mt-3 font-serif text-2xl leading-tight text-white drop-shadow-sm sm:text-3xl"
+        className={`mt-3 font-serif text-2xl leading-tight text-white drop-shadow-sm sm:text-3xl ${productNameClassName(locale)}`}
       >
         {titleShort}
       </p>
       {titleSubtitle ? (
         <p
           {...productSubtitleLangAttrs()}
-          className="mt-1 text-xs text-white/90 sm:text-sm"
+          className={`mt-1 text-xs text-white/90 sm:text-sm ${productSubtitleClassName(locale)}`}
         >
           {titleSubtitle}
         </p>

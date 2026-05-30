@@ -14,7 +14,11 @@ import { formatMad } from "@/lib/format";
 import { href } from "@/lib/href";
 import { createEventId, track } from "@/lib/analytics";
 import { getMarketingContext } from "@/lib/marketing-context";
-import { getLineTitle } from "@/lib/product-locale";
+import {
+  getLineTitle,
+  productNameClassName,
+  productNameLangAttrs,
+} from "@/lib/product-locale";
 import { normalizePhone, validateAddress, validateName } from "@/lib/phone";
 import { generateOrderId, pickUpsell } from "@/lib/order";
 import type { ProductSlug } from "@/lib/types";
@@ -334,7 +338,10 @@ export function CheckoutModal() {
                       key={l.slug}
                       className="flex items-baseline justify-between gap-3 text-sm"
                     >
-                      <span className="text-ink-soft">
+                      <span
+                        {...productNameLangAttrs(locale)}
+                        className={`text-ink-soft ${productNameClassName(locale)}`}
+                      >
                         {getLineTitle(p, locale)}
                         <span className="text-muted"> × {l.qty}</span>
                       </span>

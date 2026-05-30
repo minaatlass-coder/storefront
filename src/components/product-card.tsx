@@ -7,7 +7,9 @@ import {
   getProductCopy,
   getProductSubtitle,
   getProductTitleShort,
+  productNameClassName,
   productNameLangAttrs,
+  productSubtitleClassName,
   productSubtitleLangAttrs,
 } from "@/lib/product-locale";
 import { getMessages, t } from "@/messages";
@@ -44,7 +46,7 @@ export function ProductCard({ product, locale, hideCategory = false }: Props) {
         <Link href={href(locale, pdpPath)} className="mt-1.5">
           <h3
             {...productNameLangAttrs(locale)}
-            className="font-serif text-xl leading-tight text-ink transition group-hover:text-emerald sm:text-2xl"
+            className={`font-serif text-xl leading-tight text-ink transition group-hover:text-emerald sm:text-2xl ${productNameClassName(locale)}`}
           >
             {title}
           </h3>
@@ -52,7 +54,7 @@ export function ProductCard({ product, locale, hideCategory = false }: Props) {
         {subtitle ? (
           <p
             {...productSubtitleLangAttrs()}
-            className="mt-0.5 text-sm text-ink-soft"
+            className={`mt-0.5 text-sm text-ink-soft ${productSubtitleClassName(locale)}`}
           >
             {subtitle}
           </p>

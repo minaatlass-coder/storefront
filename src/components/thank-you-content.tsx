@@ -7,7 +7,11 @@ import { productList, products } from "@/data/products";
 import { site } from "@/data/site";
 import { formatMad } from "@/lib/format";
 import { href } from "@/lib/href";
-import { getLineTitle } from "@/lib/product-locale";
+import {
+  getLineTitle,
+  productNameClassName,
+  productNameLangAttrs,
+} from "@/lib/product-locale";
 import { track } from "@/lib/analytics";
 import { fillName } from "@/messages";
 import { CrossSellRow } from "@/components/cross-sell-row";
@@ -114,7 +118,10 @@ export function ThankYouContent({ orderId }: Props) {
                 key={it.sku}
                 className="flex items-baseline justify-between gap-3 py-2 text-sm"
               >
-                <span className="text-ink-soft">
+                <span
+                  {...productNameLangAttrs(locale)}
+                  className={`text-ink-soft ${productNameClassName(locale)}`}
+                >
                   {getLineTitle(products[it.sku], locale)}
                   <span className="text-muted"> × {it.qty}</span>
                 </span>
@@ -125,7 +132,10 @@ export function ThankYouContent({ orderId }: Props) {
             ))}
             {matches.upsell && (
               <li className="flex items-baseline justify-between gap-3 py-2 text-sm">
-                <span className="text-ink-soft">
+                <span
+                  {...productNameLangAttrs(locale)}
+                  className={`text-ink-soft ${productNameClassName(locale)}`}
+                >
                   {getLineTitle(products[matches.upsell.sku], locale)}
                   <span className="ml-1 rounded-full bg-warm/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-warm">
                     {m.thankYou.upsellTag}
