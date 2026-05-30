@@ -5,6 +5,7 @@ import { site, siteBrand } from "@/data/site";
 import { isLocale, locales } from "@/i18n/config";
 import { fillBrand, getMessages, t } from "@/messages";
 import { ProductCard } from "@/components/product-card";
+import { RoutineSuggestions } from "@/components/routine-suggestions";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -50,6 +51,8 @@ export default async function BoutiquePage({ params }: Props) {
           </li>
         ))}
       </ul>
+
+      <RoutineSuggestions locale={locale} />
 
       <section className="mt-16 rounded-3xl border border-border bg-cream p-6 sm:p-10">
         <div className="grid gap-6 sm:grid-cols-4">

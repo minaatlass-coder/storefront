@@ -78,6 +78,25 @@ export const fr = {
     kicker: "Boutique",
     intro:
       "{{brand}} ne fait pas un catalogue. Trois formules sélectionnées comme en parapharmacie — pour leur sérieux, leurs ingrédients documentés, et le fait que vous payez à la réception, pas avant.",
+    routines: {
+      title: "Suggestions de routine duo",
+      intro:
+        "Un confort santé global demande une routine cohérente. Voici les associations les plus choisies par nos clients.",
+      featuredBadge: "Le plus demandé",
+      cta: "Ajouter la routine au panier",
+      complete: {
+        title: "La routine complète",
+        desc: "Soin global : mobilité, sommeil réparateur et confort digestif.",
+      },
+      mobilitySleep: {
+        title: "Routine mobilité + sommeil",
+        desc: "Double confort : articulations le jour, récupération la nuit.",
+      },
+      sleepGut: {
+        title: "Routine sommeil + digestion",
+        desc: "Détente nocturne et confort digestif au quotidien.",
+      },
+    },
   },
   productCategory: {
     joints: "Articulations & dos",
