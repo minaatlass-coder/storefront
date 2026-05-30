@@ -1,21 +1,34 @@
 import type { Locale } from "@/i18n/config";
 import type { Product } from "@/lib/types";
 
-export function getProductTitleShort(product: Product, locale: Locale): string {
-  if (locale === "ar") {
-    return product.nameAr.split("—")[0]?.trim() ?? product.nameAr;
-  }
-  return product.nameFr.split("—")[0]?.trim() ?? product.nameFr;
+function splitFrenchName(nameFr: string) {
+  const parts = nameFr.split("—");
+  return {
+    title: parts[0]?.trim() ?? nameFr,
+    subtitle: parts[1]?.trim() ?? "",
+  };
 }
 
-/** Sous-titre : affiche la partie descriptive après « — » en fonction de la locale. */
+/** Titres produit : en /ar on garde le français (comme sur les photos d’emballage). */
+export function getProductTitleShort(product: Product, locale: Locale): string {
+  if (locale === "ar") {
+    return splitFrenchName(product.nameFr).title;
+  }
+  return splitFrenchName(product.nameFr).title;
+}
+
 export function getProductSubtitle(product: Product, locale: Locale): string {
   if (locale === "ar") {
-    const parts = product.nameAr.split("—");
-    return parts[1]?.trim() ?? "";
+    return splitFrenchName(product.nameFr).subtitle;
   }
-  const parts = product.nameFr.split("—");
-  return parts[1]?.trim() ?? "";
+  return splitFrenchName(product.nameFr).subtitle;
+}
+
+/** Attributs lang/dir pour afficher un nom produit français dans une page /ar. */
+export function productNameLangAttrs(locale: Locale) {
+  return locale === "ar"
+    ? ({ lang: "fr", dir: "ltr" as const })
+    : ({} as Record<string, never>);
 }
 
 export function getProductCopy(product: Product, locale: Locale) {

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Product } from "@/lib/types";
-import { getProductSubtitle, getProductTitleShort } from "@/lib/product-locale";
+import { getProductSubtitle, getProductTitleShort, productNameLangAttrs } from "@/lib/product-locale";
 
 const gradientByCategory = {
   joints:
@@ -41,13 +41,15 @@ function Placeholder({
             ? "Sommeil"
             : "Digestion"}
       </p>
-      <p className="mt-3 font-serif text-2xl leading-tight text-white drop-shadow-sm sm:text-3xl">
+      <p
+        {...productNameLangAttrs(locale)}
+        className="mt-3 font-serif text-2xl leading-tight text-white drop-shadow-sm sm:text-3xl"
+      >
         {titleShort}
       </p>
       {titleSubtitle ? (
         <p
-          lang="ar"
-          dir="rtl"
+          {...productNameLangAttrs(locale)}
           className="mt-1 text-xs text-white/90 sm:text-sm"
         >
           {titleSubtitle}

@@ -10,6 +10,7 @@ import {
   getProductCopy,
   getProductSubtitle,
   getProductTitleShort,
+  productNameLangAttrs,
 } from "@/lib/product-locale";
 import { track } from "@/lib/analytics";
 import { getMarketingContext } from "@/lib/marketing-context";
@@ -192,7 +193,9 @@ function UpsellModalActive({
               className="mt-4 font-serif text-2xl leading-tight text-ink sm:text-3xl"
             >
               {messages.upsell.titleBefore}{" "}
-              <span className="text-emerald">{titleShort}</span>{" "}
+              <span {...productNameLangAttrs(locale)} className="text-emerald">
+                {titleShort}
+              </span>{" "}
               {messages.upsell.titleAfter}
             </h2>
             <p className="mt-2 text-sm text-ink-soft">
@@ -204,9 +207,17 @@ function UpsellModalActive({
                 <ProductImage product={product} ratio="square" locale={locale} />
               </div>
               <div className="min-w-0">
-                <p className="text-sm font-semibold text-ink">{titleShort}</p>
+                <p
+                  {...productNameLangAttrs(locale)}
+                  className="text-sm font-semibold text-ink"
+                >
+                  {titleShort}
+                </p>
                 {subtitle ? (
-                  <p lang="ar" dir="rtl" className="text-xs text-ink-soft">
+                  <p
+                    {...productNameLangAttrs(locale)}
+                    className="text-xs text-ink-soft"
+                  >
                     {subtitle}
                   </p>
                 ) : null}

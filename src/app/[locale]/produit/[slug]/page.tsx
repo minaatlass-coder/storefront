@@ -15,6 +15,7 @@ import {
   getProductCopy,
   getProductSubtitle,
   getProductTitleShort,
+  productNameLangAttrs,
 } from "@/lib/product-locale";
 import { getMessages, t } from "@/messages";
 import type { Messages } from "@/messages";
@@ -94,12 +95,15 @@ export default async function ProductPage({ params }: Props) {
           <p className="text-[11px] uppercase tracking-[0.18em] text-emerald">
             {t(m, catKey)}
           </p>
-          <h1 className="mt-3 font-serif text-3xl leading-tight text-ink sm:text-4xl">
+          <h1
+            {...productNameLangAttrs(locale)}
+            className="mt-3 font-serif text-3xl leading-tight text-ink sm:text-4xl"
+          >
             {titleShort}
           </h1>
           {subtitle ? (
             <p
-              {...(locale === "ar" ? { lang: "ar", dir: "rtl" as const } : {})}
+              {...productNameLangAttrs(locale)}
               className="mt-1 text-base text-ink-soft"
             >
               {subtitle}
