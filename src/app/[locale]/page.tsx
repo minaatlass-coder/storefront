@@ -5,6 +5,8 @@ import type { Locale } from "@/i18n/config";
 import { fillBrand, getMessages, localeFromUnknown, t } from "@/messages";
 import { href } from "@/lib/href";
 import { ProductCard } from "@/components/product-card";
+import { HomeFaq } from "@/components/home-faq";
+import { HomeTrustBar } from "@/components/home-trust-bar";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -126,41 +128,8 @@ export default async function Home({ params }: Props) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-16 sm:pb-20">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-3xl border border-border bg-cream p-6">
-            <p className="text-xs uppercase tracking-[0.18em] text-emerald">
-              {locale === "ar" ? "فيديوهات UGC" : "Videos UGC"}
-            </p>
-            <h3 className="mt-2 font-serif text-2xl text-ink">
-              {locale === "ar" ? "محتوى حقيقي من زبناء المغرب" : "Contenu reel de clients marocains"}
-            </h3>
-            <p className="mt-2 text-sm text-ink-soft">
-              {locale === "ar"
-                ? "ضيف هنا فيديوهات TikTok/Instagram/Facebook/YouTube ديال تجارب الزبناء."
-                : "Ajoutez ici vos videos IA + UGC TikTok, Instagram, Facebook, YouTube."}
-            </p>
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              {[1, 2, 3, 4].map((n) => (
-                <div key={n} className="aspect-video rounded-xl border border-border bg-sand p-3 text-xs text-muted">
-                  {locale === "ar" ? `مكان فيديو ${n}` : `Placeholder video ${n}`}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="rounded-3xl border border-border bg-cream p-6">
-            <p className="text-xs uppercase tracking-[0.18em] text-emerald">
-              {locale === "ar" ? "الندرة والثقة" : "Rareté et confiance"}
-            </p>
-            <ul className="mt-3 space-y-3 text-sm text-ink-soft">
-              <li>• {locale === "ar" ? "شحن اليوم/غدا حسب المدينة والستوك." : "Expedition aujourd'hui/demain selon ville et stock."}</li>
-              <li>• {locale === "ar" ? "تأكيد الطلب بالمكالمة خلال 24 ساعة." : "Confirmation du colis par appel sous 24h."}</li>
-              <li>• {locale === "ar" ? "الدفع عند الاستلام: ماكتخلص حتى يوصلك." : "Paiement a la livraison: aucun paiement en ligne."}</li>
-              <li>• {locale === "ar" ? "هاد الاسبوع كاين طلب قوي على العروض الثنائية." : "Demande elevee cette semaine sur les offres duo."}</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <HomeFaq locale={locale} messages={m} />
+      <HomeTrustBar messages={m} />
     </div>
   );
 }

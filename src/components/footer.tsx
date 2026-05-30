@@ -20,7 +20,7 @@ export function Footer({
   messages: Messages;
 }) {
   return (
-    <footer className="mt-24 border-t border-border bg-cream">
+    <footer className="mt-0 border-t border-border bg-cream">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:py-16">
         <div className="grid gap-10 md:grid-cols-4">
           <div>

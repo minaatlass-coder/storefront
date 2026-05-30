@@ -72,6 +72,23 @@ export const fr = {
     why3b: "Composition complète et dosages listés sur chaque produit.",
     why4t: "Retour 7 jours",
     why4b: "Produit non ouvert, procédure simple, équipe joignable.",
+    faq: {
+      title: "Questions fréquentes",
+      intro: "Tout ce qu'il faut savoir avant de commencer votre routine.",
+      q1: "Comment payer ma commande ?",
+      a1: "Paiement à la livraison (COD) partout au Maroc : vous payez en cash à la réception du colis. Aucun paiement en ligne, aucune carte bancaire requise.",
+      q2: "Vos compléments sont-ils sûrs et documentés ?",
+      a2: "Ce sont des compléments alimentaires, pas des médicaments. Chaque formule (VitalStride, RestWave, FloraEase) affiche sa composition complète et ses dosages. Fiches techniques laboratoire disponibles sur demande.",
+      q3: "Quelle routine choisir pour moi ?",
+      a3: "VitalStride pour les articulations & le dos, RestWave pour le sommeil & le stress, FloraEase pour la digestion. Pour un confort global, la routine complète (3 formules) est la plus choisie — retrouvez aussi nos suggestions duo sur la boutique.",
+    },
+    trustBar: {
+      aria: "Garanties Sahhaonline",
+      labTitle: "Documentation laboratoire",
+      labBody: "Compléments documentés, ingrédients transparents et dosages affichés.",
+      codTitle: "Paiement à la livraison",
+      codBody: "Livraison 24–72h partout au Maroc. Vous payez à la réception.",
+    },
   },
   boutique: {
     title: "Trois formules. Trois inconforts résolus.",
