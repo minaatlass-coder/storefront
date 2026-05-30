@@ -1,12 +1,12 @@
 export const fr = {
   meta: {
-    homeTitle: "Confort santé au Maroc",
+    homeTitle: "Parapharmacie en ligne au Maroc",
     homeDescription:
-      "Articulations, sommeil et digestion : compléments documentés, paiement à la livraison partout au Maroc. Livraison 24–72h.",
+      "Articulations, sommeil et digestion : compléments documentés, formulés en laboratoire. Paiement à la livraison partout au Maroc, livraison 24–72h.",
   },
   announcement:
-    "Laboratoire N°1 au Maroc — compléments formulés et fabriqués ici, avec des spécialistes de premier plan · Paiement à la livraison · Livraison 24–72h",
-  brandSub: "Confort santé · Maroc",
+    "Parapharmacie en ligne au Maroc — compléments formulés en laboratoire avec des spécialistes, compositions et dosages documentés · Paiement à la livraison · Livraison 24–72h",
+  brandSub: "Parapharmacie en ligne · Maroc",
   nav: {
     boutique: "Boutique",
     approach: "Notre approche",
@@ -43,26 +43,27 @@ export const fr = {
     conditions: "Conditions",
     confidentialite: "Confidentialité",
   },
-  brandTagline: "Confort santé quotidien — au Maroc, à la livraison.",
+  brandTagline:
+    "La rigueur d'une parapharmacie, la confiance du paiement à la livraison — compléments santé documentés, formulés au Maroc.",
   home: {
-    badge: "Marque marocaine · confort quotidien",
+    badge: "Parapharmacie en ligne · rigueur de laboratoire",
     h1a: "Bouger, dormir, digérer.",
     h1b: "Sans miracle, avec rigueur.",
     intro:
-      "{{brand}} formule trois rituels de confort santé pour adultes au Maroc — articulations & dos, sommeil & stress, digestion — documentés, transparents, payés à la livraison.",
+      "{{brand}} est une parapharmacie en ligne marocaine : trois compléments de confort santé pour adultes — articulations & dos, sommeil & stress, digestion — formulés en laboratoire, aux compositions documentées, payés à la livraison.",
     ctaShop: "Découvrir nos 3 produits",
     ctaApproach: "Notre approche",
     docTitle: "Documentation laboratoire",
     docBody:
-      "Composition complète, dosages utiles, ingrédients listés sur chaque page produit — comme une parapharmacie en ligne, pas comme une publicité miracle.",
+      "Composition complète, dosages utiles, ingrédients listés sur chaque page produit — la transparence d'une parapharmacie, pas une publicité miracle.",
     sectionProblem: "Le problème qu'on adresse",
-    sectionProblemH: "Trois inconforts quotidiens, trois rituels documentés.",
+    sectionProblemH: "Trois inconforts quotidiens, trois formules documentées.",
     sectionProblemP:
-      "Pas un catalogue. Trois formules pour trois besoins réels — choisies pour leur sérieux, pas pour l'effet d'annonce.",
+      "Pas un catalogue. Trois formules pour trois besoins réels — sélectionnées comme en parapharmacie : pour leur sérieux, pas pour l'effet d'annonce.",
     sectionWhy: "Pourquoi {{brand}}",
-    sectionWhyH: "La confiance se livre dans le carton, pas seulement dans la pub.",
+    sectionWhyH: "L'exigence d'un pharmacien, livrée jusqu'à votre porte.",
     sectionWhyP:
-      "On parle vrai : compléments alimentaires, pas médicaments. On liste les ingrédients, on montre les dosages, on ne promet pas la lune. Et vous payez à la livraison — pas avant.",
+      "On parle vrai : compléments alimentaires, pas médicaments. On liste les ingrédients, on affiche les dosages, on documente chaque formule — et vous payez à la livraison, pas avant.",
     why1t: "Paiement à la livraison",
     why1b: "Vous payez à la réception, en cash, partout au Maroc.",
     why2t: "Documentation laboratoire",
@@ -73,10 +74,10 @@ export const fr = {
     why4b: "Produit non ouvert, procédure simple, équipe joignable.",
   },
   boutique: {
-    title: "Trois rituels. Trois inconforts résolus.",
+    title: "Trois formules. Trois inconforts résolus.",
     kicker: "Boutique",
     intro:
-      "{{brand}} ne fait pas un catalogue. Trois formules choisies pour leur sérieux, leurs ingrédients, et le fait que vous payez à la réception — pas avant.",
+      "{{brand}} ne fait pas un catalogue. Trois formules sélectionnées comme en parapharmacie — pour leur sérieux, leurs ingrédients documentés, et le fait que vous payez à la réception, pas avant.",
   },
   productCategory: {
     joints: "Articulations & dos",
@@ -238,7 +239,7 @@ export const fr = {
     kicker: "Contact",
     h1: "Une question ? On répond vraiment.",
     intro:
-      "Service client humain, basé au Maroc. Joignable au téléphone aux horaires d'ouverture, ou par message ci-dessous.",
+      "Un conseil de parapharmacie, par une équipe marocaine. Joignable au téléphone aux horaires d'ouverture, ou par message ci-dessous.",
     phoneL: "Téléphone",
     emailL: "Email",
     addrL: "Adresse",
