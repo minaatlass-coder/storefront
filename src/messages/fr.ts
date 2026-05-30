@@ -56,22 +56,13 @@ export const fr = {
     docTitle: "Documentation laboratoire",
     docBody:
       "Composition complète, dosages utiles, ingrédients listés sur chaque page produit — la transparence d'une parapharmacie, pas une publicité miracle.",
-    sectionProblem: "Le problème qu'on adresse",
-    sectionProblemH: "Trois inconforts quotidiens, trois formules documentées.",
-    sectionProblemP:
-      "Pas un catalogue. Trois formules pour trois besoins réels — sélectionnées comme en parapharmacie : pour leur sérieux, pas pour l'effet d'annonce.",
-    sectionWhy: "Pourquoi {{brand}}",
-    sectionWhyH: "L'exigence d'un pharmacien, livrée jusqu'à votre porte.",
-    sectionWhyP:
-      "On parle vrai : compléments alimentaires, pas médicaments. On liste les ingrédients, on affiche les dosages, on documente chaque formule — et vous payez à la livraison, pas avant.",
-    why1t: "Paiement à la livraison",
-    why1b: "Vous payez à la réception, en cash, partout au Maroc.",
-    why2t: "Documentation laboratoire",
-    why2b: "Fiches techniques disponibles sur demande.",
-    why3t: "Ingrédients transparents",
-    why3b: "Composition complète et dosages listés sur chaque produit.",
-    why4t: "Retour 7 jours",
-    why4b: "Produit non ouvert, procédure simple, équipe joignable.",
+    approachKicker: "Notre approche",
+    approachTitle:
+      "Trois inconforts quotidiens, l'exigence d'une parapharmacie.",
+    approachBody:
+      "Articulations, sommeil, digestion : trois besoins réels, pas un catalogue ni une promesse miracle. {{brand}} sélectionne trois formules pour leur sérieux — ingrédients listés, dosages affichés, documentation laboratoire sur demande. Compléments alimentaires, pas des médicaments. Et vous payez uniquement à la livraison, quand le colis est entre vos mains.",
+    approachImageAlt:
+      "Compléments alimentaires documentés — parapharmacie Sahhaonline",
     faq: {
       title: "Questions fréquentes",
       intro: "Tout ce qu'il faut savoir avant de commencer votre routine.",

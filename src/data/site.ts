@@ -45,7 +45,7 @@ export const site = {
     ],
     apropos: [
       { href: "/#approche", tkey: "footerLinks.approach" as const },
-      { href: "/#qualite", tkey: "footerLinks.quality" as const },
+      { href: "/#approche", tkey: "footerLinks.quality" as const },
       { href: "/mentions-legales", tkey: "footerLinks.mentions" as const },
     ],
     legal: [
