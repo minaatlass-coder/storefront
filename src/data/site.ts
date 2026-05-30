@@ -17,10 +17,14 @@ export const site = {
   addressAr: "الدار البيضاء، المغرب",
 
   trust: [
-    { tkey: "trust.cod" as const },
-    { tkey: "trust.lab" as const },
-    { tkey: "trust.ingredients" as const },
-    { tkey: "trust.returns" as const },
+    { tkey: "trust.lab" as const, bodyKey: "trust.labBody" as const, icon: "shield" as const },
+    { tkey: "trust.cod" as const, bodyKey: "trust.codBody" as const, icon: "truck" as const },
+    {
+      tkey: "trust.ingredients" as const,
+      bodyKey: "trust.ingredientsBody" as const,
+      icon: "list" as const,
+    },
+    { tkey: "trust.returns" as const, bodyKey: "trust.returnsBody" as const, icon: "return" as const },
   ],
 
   /** Chemins sans préfixe locale — le layout ajoute `/fr` ou `/ar`. */

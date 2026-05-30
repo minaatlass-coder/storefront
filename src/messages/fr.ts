@@ -18,9 +18,13 @@ export const fr = {
   },
   trust: {
     cod: "Paiement à la livraison",
+    codBody: "Livraison 24–72h partout au Maroc.",
     lab: "Documentation laboratoire",
+    labBody: "Compléments documentés, formules vérifiées.",
     ingredients: "Ingrédients transparents",
+    ingredientsBody: "Composition complète sur chaque produit.",
     returns: "Retour 7 jours",
+    returnsBody: "Produit non ouvert, procédure simple.",
   },
   footer: {
     boutique: "Boutique",

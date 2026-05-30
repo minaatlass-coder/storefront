@@ -33,14 +33,6 @@ export function Footer({
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">
               {messages.brandTagline}
             </p>
-            <ul className="mt-5 space-y-2 text-xs text-ink-soft">
-              {site.trust.map((row) => (
-                <li key={row.tkey} className="flex items-center gap-2">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald" />
-                  {t(messages, row.tkey)}
-                </li>
-              ))}
-            </ul>
           </div>
 
           {columnKeys.map((col) => (

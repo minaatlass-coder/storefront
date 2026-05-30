@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { productList } from "@/data/products";
-import { site, siteBrand } from "@/data/site";
+import { siteBrand } from "@/data/site";
 import type { Locale } from "@/i18n/config";
-import { fillBrand, getMessages, localeFromUnknown, t } from "@/messages";
+import { fillBrand, getMessages, localeFromUnknown } from "@/messages";
 import { href } from "@/lib/href";
 import { ProductCard } from "@/components/product-card";
 import { HomeFaq } from "@/components/home-faq";
 import { HomeTrustBar } from "@/components/home-trust-bar";
+import { TrustStrip } from "@/components/trust-strip";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -51,14 +52,6 @@ export default async function Home({ params }: Props) {
                 {m.home.ctaShop}
               </Link>
             </div>
-            <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-2 text-xs text-ink-soft sm:grid-cols-4">
-              {site.trust.map((row) => (
-                <li key={row.tkey} className="flex items-center gap-2">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald" />
-                  {t(m, row.tkey)}
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div className="relative">
@@ -74,6 +67,8 @@ export default async function Home({ params }: Props) {
           </div>
         </div>
       </section>
+
+      <TrustStrip messages={m} locale={locale} />
 
       <section id="approche" className="border-y border-border bg-cream">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:py-20">
