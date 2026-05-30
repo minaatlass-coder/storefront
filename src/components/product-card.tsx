@@ -8,6 +8,7 @@ import {
   getProductSubtitle,
   getProductTitleShort,
   productNameLangAttrs,
+  productSubtitleLangAttrs,
 } from "@/lib/product-locale";
 import { getMessages, t } from "@/messages";
 import { AddToCartButton } from "./add-to-cart-button";
@@ -50,7 +51,7 @@ export function ProductCard({ product, locale, hideCategory = false }: Props) {
         </Link>
         {subtitle ? (
           <p
-            {...productNameLangAttrs(locale)}
+            {...productSubtitleLangAttrs()}
             className="mt-0.5 text-sm text-ink-soft"
           >
             {subtitle}

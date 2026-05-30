@@ -11,6 +11,7 @@ import {
   getProductSubtitle,
   getProductTitleShort,
   productNameLangAttrs,
+  productSubtitleLangAttrs,
 } from "@/lib/product-locale";
 import { track } from "@/lib/analytics";
 import { getMarketingContext } from "@/lib/marketing-context";
@@ -215,7 +216,7 @@ function UpsellModalActive({
                 </p>
                 {subtitle ? (
                   <p
-                    {...productNameLangAttrs(locale)}
+                    {...productSubtitleLangAttrs()}
                     className="text-xs text-ink-soft"
                   >
                     {subtitle}

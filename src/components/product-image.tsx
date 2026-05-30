@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Product } from "@/lib/types";
-import { getProductSubtitle, getProductTitleShort, productNameLangAttrs } from "@/lib/product-locale";
+import { getProductSubtitle, getProductTitleShort, productNameLangAttrs, productSubtitleLangAttrs } from "@/lib/product-locale";
 
 const gradientByCategory = {
   joints:
@@ -49,7 +49,7 @@ function Placeholder({
       </p>
       {titleSubtitle ? (
         <p
-          {...productNameLangAttrs(locale)}
+          {...productSubtitleLangAttrs()}
           className="mt-1 text-xs text-white/90 sm:text-sm"
         >
           {titleSubtitle}

@@ -16,6 +16,7 @@ import {
   getProductSubtitle,
   getProductTitleShort,
   productNameLangAttrs,
+  productSubtitleLangAttrs,
 } from "@/lib/product-locale";
 import { getMessages, t } from "@/messages";
 import type { Messages } from "@/messages";
@@ -103,7 +104,7 @@ export default async function ProductPage({ params }: Props) {
           </h1>
           {subtitle ? (
             <p
-              {...productNameLangAttrs(locale)}
+              {...productSubtitleLangAttrs()}
               className="mt-1 text-base text-ink-soft"
             >
               {subtitle}
