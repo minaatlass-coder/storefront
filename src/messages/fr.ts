@@ -141,8 +141,19 @@ export const fr = {
     step2Body: "Un agent confirme l'adresse, la ville et le total à payer à la livraison.",
     step3Title: "Vous payez à la réception",
     step3Body: "Le colis arrive sous 24–72h selon la ville. Aucun paiement en ligne.",
+    heroReviews: "{rating} / 5 · {count} avis",
+    heroDelivery: "Livraison 24–72h partout au Maroc",
+    heroGuarantee: "Retour 7 jours · produit non ouvert",
+    heroQuality: "Complément documenté · ingrédients listés",
+    imageBadge: "Formule transparente",
+    stickyFrom: "À partir de {price} · paiement à la livraison",
     faqKicker: "Questions fréquentes",
-    faqTitle: "Les réponses avant de commander",
+    faqTitle: "Vous avez des questions ?",
+    faqSubtitle:
+      "Nous avons rassemblé les réponses aux questions les plus fréquentes.",
+    testimonialsSubtitle:
+      "Ne vous fiez pas qu'à notre parole — voici ce que disent nos clients au Maroc.",
+    satisfiedLabel: "clients satisfaits",
     finalKicker: "Récapitulatif",
     finalTitle: "Prêt à commencer votre routine ?",
     finalBody:

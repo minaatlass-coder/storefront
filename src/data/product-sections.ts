@@ -1,7 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import type { ProductSlug } from "@/lib/types";
 
-export type ProductSectionId = "pain" | "routine" | "trust";
+export type ProductSectionId = "pain" | "ingredients" | "trust";
 
 export interface ProductSectionFeature {
   title: string;
@@ -16,12 +16,20 @@ export interface ProductSectionContent {
     items: string[];
     callout: string;
   };
-  routine: {
+  ingredients: {
     kicker: string;
     title: string;
     intro: string;
+    caption: string;
     features: ProductSectionFeature[];
-    highlights: string[];
+  };
+  comparison: {
+    title: string;
+    subtitle: string;
+    brandLabel: string;
+    marketLabel: string;
+    brandRows: string[];
+    marketRows: string[];
   };
   trust: {
     kicker: string;
@@ -51,26 +59,45 @@ const sectionsFr: Record<ProductSlug, ProductSectionContent> = {
       callout:
         "Objectif : retrouver du confort au quotidien, avec une formule documentée et un paiement à la livraison.",
     },
-    routine: {
-      kicker: "Rituel VitalStride",
-      title: "Une routine simple, matin et soir.",
+    ingredients: {
+      kicker: "Composition transparente",
+      title: "Le secret, ce sont des actifs à dose utile",
       intro:
-        "Deux gélules par jour avec un grand verre d'eau, pendant les repas. Une cure d'environ 30 jours pour installer l'habitude.",
+        "Chaque ingrédient est choisi pour son rôle dans le confort articulaire, à des concentrations affichées sur la fiche produit.",
+      caption: "Ingrédients clés VitalStride",
       features: [
         {
-          title: "Livraison 24–72h au Maroc",
-          body: "Expédition après confirmation téléphonique de votre commande.",
+          title: "Glucosamine & chondroïtine",
+          body: "Associe les deux actifs les plus utilisés pour soutenir le confort des articulations au quotidien.",
         },
         {
-          title: "Paiement à la livraison",
-          body: "Vous payez en cash à la réception — aucun paiement en ligne.",
+          title: "MSM & curcuma standardisé",
+          body: "Complète la routine avec des extraits reconnus pour accompagner mobilité et raideur matinale.",
         },
         {
-          title: "Retour 7 jours",
-          body: "Produit non ouvert, procédure simple si le colis ne vous convient pas.",
+          title: "Boswellia, vitamine C & manganèse",
+          body: "Formule complète en une seule prise, matin et soir, avec un grand verre d'eau.",
         },
       ],
-      highlights: ["30 jours de cure", "Matin + soir", "Ingrédients listés"],
+    },
+    comparison: {
+      title: "Pourquoi Sahhaonline est différent ?",
+      subtitle:
+        "Nous avons conçu une expérience transparente, honnête, pensée pour votre confort au Maroc.",
+      brandLabel: "Sahhaonline",
+      marketLabel: "Produits du marché classique",
+      brandRows: [
+        "Résultats progressifs, basés sur la régularité",
+        "Ingrédients nommés et dosages affichés",
+        "Paiement à la livraison, sans avance",
+        "Équipe marocaine qui confirme chaque commande",
+      ],
+      marketRows: [
+        "Promesses rapides et exagérées",
+        "Compositions floues ou incomplètes",
+        "Paiement en ligne obligatoire",
+        "Support automatisé ou inexistant",
+      ],
     },
     trust: {
       kicker: "Sécurité, qualité, transparence",
@@ -112,26 +139,45 @@ const sectionsFr: Record<ProductSlug, ProductSectionContent> = {
       callout:
         "Magnésium bisglycinate + vitamine B6 : une routine du soir simple, payée à la livraison.",
     },
-    routine: {
-      kicker: "Rituel RestWave",
-      title: "30 minutes avant le coucher.",
+    ingredients: {
+      kicker: "Composition transparente",
+      title: "Une formule courte, pensée pour le soir",
       intro:
-        "Deux gélules le soir avec de l'eau. Une boîte = environ 30 nuits de rituel.",
+        "Pas de liste interminable : deux actifs utiles, une prise simple avant le coucher.",
+      caption: "Actifs clés RestWave",
       features: [
         {
-          title: "Livraison 24–72h au Maroc",
-          body: "Confirmation par appel sous 24h, puis préparation du colis.",
+          title: "Magnésium bisglycinate",
+          body: "Forme bien tolérée, adaptée à une prise quotidienne le soir sans inconfort digestif.",
         },
         {
-          title: "Paiement à la livraison",
-          body: "Aucune carte bancaire sur le site.",
+          title: "Vitamine B6 (P-5-P)",
+          body: "Complète le rituel nuit pour accompagner fatigue et tensions du quotidien.",
         },
         {
-          title: "Forme bisglycinate",
-          body: "Meilleure tolérance digestive que certaines formes de magnésium.",
+          title: "Gélule végétale",
+          body: "Deux gélules, 30 minutes avant le coucher, avec un grand verre d'eau — environ 30 nuits par boîte.",
         },
       ],
-      highlights: ["Rituel du soir", "30 nuits", "B6 incluse"],
+    },
+    comparison: {
+      title: "Pourquoi Sahhaonline est différent ?",
+      subtitle:
+        "Une routine nuit claire, sans promesse de somnifère ni paiement avant réception.",
+      brandLabel: "Sahhaonline",
+      marketLabel: "Produits du marché classique",
+      brandRows: [
+        "Routine du soir progressive, sans effet « assommé »",
+        "Forme magnésium expliquée (bisglycinate)",
+        "Paiement à la livraison partout au Maroc",
+        "Confirmation humaine avant expédition",
+      ],
+      marketRows: [
+        "Présentés comme des somnifères naturels",
+        "Magnésium bas de gamme mal absorbé",
+        "Paiement carte obligatoire",
+        "Aucun suivi après commande",
+      ],
     },
     trust: {
       kicker: "Sécurité, qualité, transparence",
@@ -173,26 +219,45 @@ const sectionsFr: Record<ProductSlug, ProductSectionContent> = {
       callout:
         "Probiotiques + fibres prébiotiques : une routine digestive claire, livrée en paiement à la livraison.",
     },
-    routine: {
-      kicker: "Rituel FloraEase",
-      title: "Une prise quotidienne, avec les repas.",
+    ingredients: {
+      kicker: "Composition transparente",
+      title: "Des souches listées, pas une formule « secrète »",
       intro:
-        "Suivez la notice sur l'étiquette : généralement une à deux prises par jour avec un grand verre d'eau.",
+        "Probiotiques multi-souches et fibre prébiotique pour une routine digestive douce et lisible.",
+      caption: "Actifs clés FloraEase",
       features: [
         {
-          title: "Livraison 24–72h",
-          body: "Partout au Maroc, après validation de votre commande.",
+          title: "Souches probiotiques nommées",
+          body: "Transparence sur les familles utilisées — pas de mélange anonyme.",
         },
         {
-          title: "Paiement à la livraison",
-          body: "Vous réglez le livreur à la réception.",
+          title: "Fibre prébiotique (inuline)",
+          body: "Complète les souches pour une routine structurée, une prise par jour.",
         },
         {
-          title: "Routine douce",
-          body: "Pensé pour accompagner le confort digestif au quotidien.",
+          title: "Gélule gastro-résistante",
+          body: "Pensée pour accompagner le confort digestif sans promesse de reset instantané.",
         },
       ],
-      highlights: ["Probiotiques", "Fibres prébiotiques", "Routine douce"],
+    },
+    comparison: {
+      title: "Pourquoi Sahhaonline est différent ?",
+      subtitle:
+        "Attentes réalistes, composition affichée, livraison et paiement adaptés au Maroc.",
+      brandLabel: "Sahhaonline",
+      marketLabel: "Produits du marché classique",
+      brandRows: [
+        "Confort digestif progressif, routine douce",
+        "Souches et fibres indiquées sur la fiche",
+        "Paiement à la livraison, sans risque en ligne",
+        "Conseil par téléphone avant envoi",
+      ],
+      marketRows: [
+        "Promesses de détox ou reset en 48h",
+        "Probiotiques « propriétaires » non détaillés",
+        "Abonnements ou paiement immédiat",
+        "FAQ générique, pas de contact local",
+      ],
     },
     trust: {
       kicker: "Sécurité, qualité, transparence",
@@ -237,26 +302,45 @@ const sectionsAr: Record<ProductSlug, ProductSectionContent> = {
       callout:
         "الهدف: راحة فالنهار مع تركيبة واضحة والدفع عند الاستلام.",
     },
-    routine: {
-      kicker: "روتين VitalStride",
-      title: "روتين بسيط: الصباح والمساء.",
+    ingredients: {
+      kicker: "تركيبة شفافة",
+      title: "السر فالمكوّنات الفعّالة",
       intro:
-        "كبسولتان فالنهار مع كأس كبير ديال الماء، مع الوجبات. علاج ديال تقريباً 30 يوم.",
+        "كل مكوّن مختار لدوره فراحة المفاصل، بجرعات مذكورة فصفحة المنتوج.",
+      caption: "مكوّنات أساسية VitalStride",
       features: [
         {
-          title: "توصيل 24–72 ساعة فالمغرب",
-          body: "الشحن من بعد تأكيد الطلب بالتليفون.",
+          title: "جلوكوزامين وكوندرويتين",
+          body: "أشهر اثنين ديال المكوّنات لدعم راحة المفاصل فالنهار.",
         },
         {
-          title: "الدفع عند الاستلام",
-          body: "كتخلص نقداً عند التسليم — بلا دفع أونلاين.",
+          title: "MSM وكركم موحّد",
+          body: "يكمّلوا الروتين للمرونة وتقليل الشد فالصباح.",
         },
         {
-          title: "إرجاع 7 أيام",
-          body: "المنتوج ما متفتحش: إجراء بسيط إلا ما عجبكش.",
+          title: "لبان الذكر، فيتامين C ومنغنيز",
+          body: "تركيبة كاملة فجرعة واحدة، صباحاً ومساءً مع ماء كافي.",
         },
       ],
-      highlights: ["30 يوم علاج", "صباح + مساء", "مكوّنات مذكورة"],
+    },
+    comparison: {
+      title: "علاش صحة أونلاين مختلفة؟",
+      subtitle:
+        "صممنا تجربة شفافة وصادقة، مبنية على راحتكم فالمغرب.",
+      brandLabel: "صحة أونلاين",
+      marketLabel: "منتجات السوق العادية",
+      brandRows: [
+        "نتائج تدريجية مع الانتظام",
+        "مكوّنات بالاسم والجرعات ظاهرة",
+        "الدفع عند الاستلام بلا مقدم",
+        "فريق مغربي يؤكد كل طلب",
+      ],
+      marketRows: [
+        "وعود سريعة ومبالغ فيها",
+        "تركيبات غامضة أو ناقصة",
+        "دفع أونلاين إجباري",
+        "دعم آلي أو معدوم",
+      ],
     },
     trust: {
       kicker: "أمان، جودة، شفافية",
@@ -298,26 +382,45 @@ const sectionsAr: Record<ProductSlug, ProductSectionContent> = {
       callout:
         "مغنيزيوم بيسغليسينات + B6: روتين ليلي بسيط، والدفع عند الاستلام.",
     },
-    routine: {
-      kicker: "روتين RestWave",
-      title: "30 دقيقة قبل النوم.",
+    ingredients: {
+      kicker: "تركيبة شفافة",
+      title: "تركيبة قصيرة، مصممة لليل",
       intro:
-        "كبسولتان فالليل مع الماء. علبة = تقريباً 30 ليلة.",
+        "بلا قائمة طويلة: مكوّنان مفيدان وجرعة بسيطة قبل النوم.",
+      caption: "مكوّنات RestWave",
       features: [
         {
-          title: "توصيل 24–72 ساعة",
-          body: "تأكيد بالتليفون ثم تحضير الطرد.",
+          title: "مغنيزيوم بيسغليسينات",
+          body: "شكل محتمل جيداً للاستعمال الليلي بلا إزعاج هضمي.",
         },
         {
-          title: "الدفع عند الاستلام",
-          body: "بلا بطاقة بنكية فالموقع.",
+          title: "فيتامين B6 (P-5-P)",
+          body: "يكمّل روتين المساء للتعب والتوتر.",
         },
         {
-          title: "شكل bisglycinate",
-          body: "تحمّل هضمي أحسن من بعض أشكال المغنيزيوم.",
+          title: "كبسولة نباتية",
+          body: "كبسولتان قبل النوم بنحو 30 دقيقة — تقريباً 30 ليلة لكل علبة.",
         },
       ],
-      highlights: ["روتين ليلي", "30 ليلة", "B6 مضمّنة"],
+    },
+    comparison: {
+      title: "علاش صحة أونلاين مختلفة؟",
+      subtitle:
+        "روتين ليل واضح، بلا وعود منوم وبلا دفع قبل الاستلام.",
+      brandLabel: "صحة أونلاين",
+      marketLabel: "منتجات السوق العادية",
+      brandRows: [
+        "روتين تدريجي بلا « تخدير » صباحاً",
+        "شكل المغنيزيوم موضّح (bisglycinate)",
+        "الدفع عند الاستلام فالمغرب",
+        "تأكيد بشري قبل الشحن",
+      ],
+      marketRows: [
+        "يُباع كمنوم طبيعي",
+        "مغنيزيوم رخيص ضعيف الامتصاص",
+        "دفع بالبطاقة إجباري",
+        "لا متابعة بعد الطلب",
+      ],
     },
     trust: {
       kicker: "أمان، جودة، شفافية",
@@ -359,26 +462,45 @@ const sectionsAr: Record<ProductSlug, ProductSectionContent> = {
       callout:
         "بروبيوتيك + ألياف قبلية: روتين هضمي واضح، والدفع عند الاستلام.",
     },
-    routine: {
-      kicker: "روتين FloraEase",
-      title: "مرة فالنهار، مع الوجبات.",
+    ingredients: {
+      kicker: "تركيبة شفافة",
+      title: "سلالات مذكورة، ماشي « سر »",
       intro:
-        "اتبع التعليمات على العلبة: عادة مرة أو مرتين فالنهار مع ماء كافي.",
+        "بروبيوتيك متعدد السلالات وألياف قبلية لروتين هضمي لطيف وواضح.",
+      caption: "مكوّنات FloraEase",
       features: [
         {
-          title: "توصيل 24–72 ساعة",
-          body: "فجميع مدن المغرب بعد تأكيد الطلب.",
+          title: "سلالات بروبيوتيك بالاسم",
+          body: "شفافية على العائلات — بلا خليط مجهول.",
         },
         {
-          title: "الدفع عند الاستلام",
-          body: "كتخلص للموزّع عند التسليم.",
+          title: "ألياف قبلية (إينولين)",
+          body: "تكمل السلالات لروتين منظم، مرة فالنهار.",
         },
         {
-          title: "روتين لطيف",
-          body: "مصمم لراحة الهضم فالنهار.",
+          title: "كبسولة مقاومة للمعدة",
+          body: "لراحة الهضم بلا وعد بـ reset فوري.",
         },
       ],
-      highlights: ["بروبيوتيك", "ألياف قبلية", "روتين لطيف"],
+    },
+    comparison: {
+      title: "علاش صحة أونلاين مختلفة؟",
+      subtitle:
+        "توقعات واقعية، تركيبة ظاهرة، توصيل ودفع مناسبين للمغرب.",
+      brandLabel: "صحة أونلاين",
+      marketLabel: "منتجات السوق العادية",
+      brandRows: [
+        "راحة هضمية تدريجية، روتين لطيف",
+        "سلالات وألياف مذكورة",
+        "الدفع عند الاستلام بلا مخاطرة أونلاين",
+        "نصيحة بالتليفون قبل الإرسال",
+      ],
+      marketRows: [
+        "وعود detox أو reset فـ 48 ساعة",
+        "بروبيوتيك « خاص » بلا تفاصيل",
+        "اشتراكات أو دفع فوري",
+        "FAQ عامة بلا تواصل محلي",
+      ],
     },
     trust: {
       kicker: "أمان، جودة، شفافية",
@@ -413,9 +535,9 @@ export const productSectionImagePaths: Record<
   ProductSlug,
   Record<ProductSectionId, string | null>
 > = {
-  vitalstride: { pain: null, routine: null, trust: null },
-  restwave: { pain: null, routine: null, trust: null },
-  floraease: { pain: null, routine: null, trust: null },
+  vitalstride: { pain: null, ingredients: null, trust: null },
+  restwave: { pain: null, ingredients: null, trust: null },
+  floraease: { pain: null, ingredients: null, trust: null },
 };
 
 export function getProductSections(

@@ -18,7 +18,7 @@ const gradientByCategory = {
 
 const sectionLabels: Record<ProductSectionId, { fr: string; ar: string }> = {
   pain: { fr: "Photo contexte", ar: "صورة السياق" },
-  routine: { fr: "Photo routine", ar: "صورة الروتين" },
+  ingredients: { fr: "Photo ingrédients", ar: "صورة المكوّنات" },
   trust: { fr: "Photo qualité", ar: "صورة الجودة" },
 };
 
