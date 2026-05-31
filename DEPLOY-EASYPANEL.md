@@ -77,7 +77,13 @@ NEXT_PUBLIC_TIKTOK_PIXEL_ID=...
 NEXT_PUBLIC_GOOGLE_TAG_ID=...
 ```
 
-`API_URL` : Next.js proxifie `/api/order` et `/api/track` vers le backend (le navigateur appelle toujours `sahha.online/api/...`).
+`API_URL` : Next.js proxifie `/api/order`, `/api/track` et `/api/admin/*` vers le backend.
+
+### Tableau de bord admin
+
+- URL : **`https://sahha.online/admin/login`** (sans `/fr` ni `/ar`)
+- Variables **sur le service backend uniquement** : `ADMIN_USERNAME`, `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET` (min. 16 caractères)
+- Après ajout du code admin : **commit + push** du dépôt `storefront`, puis **redéployer** le service storefront
 
 **Important checkout :** utilisez l’URL **interne** Docker (nom du service backend dans EasyPanel, ex. `sahhaonline_backend`) — pas `https://api.sahha.online` depuis le conteneur storefront, sinon latence / timeouts avant l'offre unique.
 
