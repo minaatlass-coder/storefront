@@ -67,23 +67,49 @@ export interface AdminOrder {
   ip_country: string | null;
 }
 
+const API_ERRORS: Record<number, string> = {
+  401: "Session expirée ou identifiants incorrects.",
+  502: "API admin indisponible — vérifiez API_URL et redéployez le backend.",
+  503: "Admin non configuré sur le backend (ADMIN_USERNAME, ADMIN_PASSWORD, ADMIN_SESSION_SECRET).",
+  404: "Route admin introuvable — redéployez le backend avec le code admin.",
+};
+
 async function adminFetch<T>(
   path: string,
   init?: RequestInit,
 ): Promise<{ ok: true; data: T } | { ok: false; error: string; status: number }> {
-  const res = await fetch(`/api/admin/${path}`, {
-    ...init,
-    headers: {
-      "content-type": "application/json",
-      ...(init?.headers ?? {}),
-    },
-    credentials: "same-origin",
-  });
-  const json = (await res.json()) as { ok?: boolean; error?: string } & T;
+  let res: Response;
+  try {
+    res = await fetch(`/api/admin/${path}`, {
+      ...init,
+      headers: {
+        "content-type": "application/json",
+        ...(init?.headers ?? {}),
+      },
+      credentials: "same-origin",
+    });
+  } catch {
+    return { ok: false, error: "Réseau indisponible.", status: 0 };
+  }
+
+  let json: { ok?: boolean; error?: string } & T;
+  try {
+    json = (await res.json()) as { ok?: boolean; error?: string } & T;
+  } catch {
+    return {
+      ok: false,
+      error: API_ERRORS[res.status] ?? `Erreur serveur (${res.status}).`,
+      status: res.status,
+    };
+  }
+
   if (!res.ok || json.ok === false) {
     return {
       ok: false,
-      error: json.error ?? "Erreur",
+      error:
+        json.error ??
+        API_ERRORS[res.status] ??
+        `Erreur (${res.status}).`,
       status: res.status,
     };
   }
