@@ -53,7 +53,7 @@ export function ProductCard({ product, locale, hideCategory = false }: Props) {
         </Link>
         {subtitle ? (
           <p
-            {...productSubtitleLangAttrs()}
+            {...productSubtitleLangAttrs(locale)}
             className={`mt-0.5 text-sm text-ink-soft ${productSubtitleClassName(locale)}`}
           >
             {subtitle}

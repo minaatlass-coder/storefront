@@ -218,7 +218,7 @@ function UpsellModalActive({
                 </p>
                 {subtitle ? (
                   <p
-                    {...productSubtitleLangAttrs()}
+                    {...productSubtitleLangAttrs(locale)}
                     className={`text-xs text-ink-soft ${productSubtitleClassName(locale)}`}
                   >
                     {subtitle}

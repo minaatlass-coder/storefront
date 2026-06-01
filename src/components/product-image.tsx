@@ -58,7 +58,7 @@ function Placeholder({
       </p>
       {titleSubtitle ? (
         <p
-          {...productSubtitleLangAttrs()}
+          {...productSubtitleLangAttrs(locale)}
           className={`mt-1 text-xs text-white/90 sm:text-sm ${productSubtitleClassName(locale)}`}
         >
           {titleSubtitle}

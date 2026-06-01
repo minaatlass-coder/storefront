@@ -15,10 +15,11 @@ export function getProductTitleShort(_product: Product, locale: Locale): string 
   return splitName(_product.nameFr).title;
 }
 
-/** Sous-titre sous le nom : toujours en arabe (FR et AR). */
+/** Sous-titre sous le nom : français sur /fr, arabe sur /ar (nom produit reste en français). */
 export function getProductSubtitle(product: Product, locale: Locale): string {
-  void locale;
-  return splitName(product.nameAr).subtitle;
+  return locale === "ar"
+    ? splitName(product.nameAr).subtitle
+    : splitName(product.nameFr).subtitle;
 }
 
 /** Nom français affiché dans une page /ar. */
@@ -28,9 +29,11 @@ export function productNameLangAttrs(locale: Locale) {
     : ({} as Record<string, never>);
 }
 
-/** Sous-titre arabe sous le nom (FR et AR). */
-export function productSubtitleLangAttrs() {
-  return { lang: "ar", dir: "rtl" as const };
+/** Attributs lang/dir du sous-titre (arabe uniquement sur /ar). */
+export function productSubtitleLangAttrs(locale: Locale) {
+  return locale === "ar"
+    ? { lang: "ar", dir: "rtl" as const }
+    : ({} as Record<string, never>);
 }
 
 /** Alignement à droite en page arabe (text-right, pas text-end : en RTL text-end = gauche). */

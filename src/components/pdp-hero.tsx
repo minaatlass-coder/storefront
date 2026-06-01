@@ -123,7 +123,7 @@ export function PdpHero({
         </h1>
         {subtitle ? (
           <p
-            {...productSubtitleLangAttrs()}
+            {...productSubtitleLangAttrs(locale)}
             className={`mt-1 text-base text-ink-soft ${productSubtitleClassName(locale)}`}
           >
             {subtitle}
