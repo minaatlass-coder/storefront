@@ -535,7 +535,11 @@ export const productSectionImagePaths: Record<
   ProductSlug,
   Record<ProductSectionId, string | null>
 > = {
-  vitalstride: { pain: null, ingredients: null, trust: null },
+  vitalstride: {
+    pain: "/products/vitalstride-section-pain.webp",
+    ingredients: null,
+    trust: null,
+  },
   restwave: { pain: null, ingredients: null, trust: null },
   floraease: { pain: null, ingredients: null, trust: null },
 };

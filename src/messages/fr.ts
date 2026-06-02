@@ -51,17 +51,76 @@ export const fr = {
     "La rigueur d'une parapharmacie, la confiance du paiement à la livraison — compléments santé documentés, formulés au Maroc.",
   home: {
     badge: "Parapharmacie en ligne · rigueur de laboratoire",
+    heroTrustLine:
+      "Compléments documentés en laboratoire · Paiement à la livraison · Livraison 24–72h",
     h1a: "Bouger, dormir, digérer.",
     h1b: "Sans miracle, avec rigueur.",
     intro:
-      "{{brand}} est une parapharmacie en ligne marocaine : trois compléments de confort santé pour adultes — articulations & dos, sommeil & stress, digestion — formulés en laboratoire, aux compositions documentées, payés à la livraison.",
+      "Trois formules de confort santé pour adultes — articulations & dos, sommeil & stress, digestion — formulées en laboratoire, aux compositions documentées. Compléments alimentaires, pas des médicaments, payés uniquement à la livraison.",
     ctaShop: "Découvrir nos 3 produits",
+    ctaGuarantee: "Retour 7 jours · produit non ouvert",
     ctaApproach: "Notre approche",
     heroImageAlt:
       "Compléments alimentaires Sahhaonline — parapharmacie en ligne au Maroc",
+    heroImageBadge: "Documentation laboratoire",
+    heroImageBadgeSub: "Formules vérifiées · ingrédients listés",
+    heroBadges: {
+      lab: "Laboratoire",
+      labSub: "Formules documentées",
+      ingredients: "Transparence",
+      ingredientsSub: "Dosages affichés",
+      cod: "COD",
+      codSub: "Paiement à la livraison",
+      returns: "7 jours",
+      returnsSub: "Retour simple",
+    },
     docTitle: "Documentation laboratoire",
     docBody:
       "Composition complète, dosages utiles, ingrédients listés sur chaque page produit — la transparence d'une parapharmacie, pas une publicité miracle.",
+    productsKicker: "Notre sélection",
+    productsTitle: "Trois formules. Trois inconforts. Une exigence parapharmacie.",
+    productsIntro:
+      "Chaque formule {{brand}} est indépendante, avec des dosages utiles documentés. Choisissez le besoin qui vous concerne, ou combinez les trois pour une routine complète.",
+    whyKicker: "Pourquoi {{brand}}",
+    whyTitle: "Une parapharmacie, pas un catalogue.",
+    whyIntro:
+      "{{brand}} repose sur quatre piliers : documentation laboratoire, transparence des ingrédients, formules sérieuses, et confiance du paiement à la livraison.",
+    whyPillars: {
+      labTitle: "Documentation laboratoire",
+      labBody:
+        "Compléments alimentaires documentés, pas des promesses marketing. Chaque formule affiche sa composition complète et ses dosages.",
+      ingredientsTitle: "Ingrédients transparents · dosages affichés",
+      ingredientsBody:
+        "Pas de « mélange propriétaire » opaque. Vous savez ce que vous prenez, en quelle quantité, et pourquoi.",
+      formulasTitle: "Formules ciblées, pas un catalogue fourre-tout",
+      formulasBody:
+        "Trois besoins réels — articulations, sommeil, digestion — trois formules sélectionnées pour leur sérieux et leur cohérence.",
+      codTitle: "Retour 7 jours · paiement à la livraison",
+      codBody:
+        "Essayez la routine, et si elle ne vous convient pas, retour simple sur produit non ouvert. Vous payez uniquement quand le colis arrive.",
+    },
+    reviewsKicker: "Avis vérifiés",
+    reviewsTitle: "Des clients qui ont lu les compositions avant d'acheter",
+    reviewsIntro:
+      "{{brand}}, c'est le choix de ceux qui ne croient pas aux promesses miracle. Ils ont lu, vérifié, puis commandé.",
+    reviewsVerified: "Achat vérifié",
+    stepsKicker: "Comment ça marche",
+    stepsTitle: "De la commande à votre porte en 3 étapes",
+    stepsIntro: "Sans paiement en ligne. Sans engagement. Sans risque.",
+    step1Title: "Choisissez votre routine",
+    step1Body:
+      "Trois formules pour trois besoins : articulations & dos, sommeil & stress, ou digestion. Prenez une seule formule ou la routine complète.",
+    step2Title: "Confirmez votre commande (sans payer)",
+    step2Body:
+      "Nom, adresse et téléphone. Paiement à la livraison — un agent vous appelle pour confirmer l'adresse et le total.",
+    step3Title: "Recevez et payez",
+    step3Body:
+      "Livraison sous 24–72h selon votre ville au Maroc. Vous payez en cash à la réception du colis.",
+    ctaKicker: "Commencez votre routine",
+    ctaTitle: "Votre santé mérite de la rigueur, pas des promesses",
+    ctaBody:
+      "Démarrez votre routine aujourd'hui. Paiement à la livraison, livraison partout au Maroc, retour 7 jours — une expérience sans risque.",
+    ctaBadges: "Laboratoire · Ingrédients listés · Livraison Maroc · Retour 7 jours",
     approachKicker: "Notre approche",
     approachTitle:
       "Trois inconforts quotidiens, l'exigence d'une parapharmacie.",
@@ -70,14 +129,21 @@ export const fr = {
     approachImageAlt:
       "Compléments alimentaires documentés — parapharmacie Sahhaonline",
     faq: {
-      title: "Questions fréquentes",
-      intro: "Tout ce qu'il faut savoir avant de commencer votre routine.",
+      kicker: "FAQ",
+      title: "Questions avant de commander",
+      intro: "Tout ce qu'il faut savoir avant le paiement à la livraison.",
       q1: "Comment payer ma commande ?",
       a1: "Paiement à la livraison (COD) partout au Maroc : vous payez en cash à la réception du colis. Aucun paiement en ligne, aucune carte bancaire requise.",
       q2: "Vos compléments sont-ils sûrs et documentés ?",
       a2: "Ce sont des compléments alimentaires, pas des médicaments. Chaque formule (VitalStride, RestWave, FloraEase) affiche sa composition complète et ses dosages. Fiches techniques laboratoire disponibles sur demande.",
       q3: "Quelle routine choisir pour moi ?",
       a3: "VitalStride pour les articulations & le dos, RestWave pour le sommeil & le stress, FloraEase pour la digestion. Pour un confort global, la routine complète (3 formules) est la plus choisie — retrouvez aussi nos suggestions duo sur la boutique.",
+      q4: "La livraison est-elle disponible partout au Maroc ?",
+      a4: "Oui. Le paiement à la livraison est disponible dans toutes les régions du Maroc. Livraison sous 24–72h selon la ville.",
+      q5: "Quelle est la politique de retour ?",
+      a5: "Retour sous 7 jours sur produit non ouvert, procédure simple. Contactez-nous pour lancer la demande.",
+      q6: "Quand vais-je sentir une différence ?",
+      a6: "Les compléments agissent progressivement. La régularité est essentielle : comptez 2 à 4 semaines pour un confort notable, selon la formule et votre routine.",
     },
     trustBar: {
       aria: "Garanties Sahhaonline",

@@ -36,7 +36,7 @@ export const site = {
 
   /** Chemins sans préfixe locale — le layout ajoute `/fr` ou `/ar`. */
   nav: [
-    { href: "/boutique", tkey: "nav.boutique" as const },
+    { href: "/#produits", tkey: "nav.boutique" as const },
     { href: "/#approche", tkey: "nav.approach" as const },
     { href: "/contact", tkey: "nav.contact" as const },
   ],

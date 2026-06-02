@@ -1,3 +1,4 @@
+import { reviews as reviewsData } from "@/data/reviews";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { Product } from "@/lib/types";
@@ -20,9 +21,15 @@ interface Props {
   product: Product;
   locale: Locale;
   hideCategory?: boolean;
+  showReviewCount?: boolean;
 }
 
-export function ProductCard({ product, locale, hideCategory = false }: Props) {
+export function ProductCard({
+  product,
+  locale,
+  hideCategory = false,
+  showReviewCount = false,
+}: Props) {
   const m = getMessages(locale);
   const copy = getProductCopy(product, locale);
   const title = getProductTitleShort(product, locale);
@@ -30,6 +37,7 @@ export function ProductCard({ product, locale, hideCategory = false }: Props) {
   const catKey = `productCategory.${product.category}` as const;
   const pdpPath = `/produit/${product.slug}`;
   const aria = `${t(m, "productCard.viewAria")} ${title}`;
+  const reviewCount = showReviewCount ? reviewsData[product.slug]?.count : undefined;
 
   return (
     <article className="group flex flex-col rounded-2xl border border-border bg-cream p-3 transition hover:border-ink sm:p-4">
@@ -62,6 +70,11 @@ export function ProductCard({ product, locale, hideCategory = false }: Props) {
         <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-ink-soft">
           {copy.tagline}
         </p>
+        {reviewCount != null ? (
+          <p className="mt-2 text-xs text-muted">
+            ({reviewCount} {locale === "ar" ? "تقييم" : "avis"})
+          </p>
+        ) : null}
 
         <div className="mt-5 flex items-center justify-between gap-3">
           <p className="text-lg font-semibold text-ink">
