@@ -223,6 +223,9 @@ export function PdpHero({
         <p className="mt-2 text-center text-xs text-muted sm:text-start">
           {messages.pdp.ctaMicro}
         </p>
+        <p className="mt-3 rounded-xl border border-border bg-sand/60 px-4 py-3 text-xs leading-relaxed text-ink-soft">
+          {messages.pdp.packagingNotice}
+        </p>
       </div>
     </div>
   );

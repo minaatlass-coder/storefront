@@ -178,7 +178,7 @@ function ProductFaq({
   locale: Locale;
   messages: Messages;
 }) {
-  const items = getFaqItems(slug, locale);
+  const items = getFaqItems(slug, locale, messages);
   const isRtl = locale === "ar";
 
   return (
@@ -228,8 +228,16 @@ function ProductFaq({
   );
 }
 
-function getFaqItems(slug: ProductSlug, locale: Locale): Array<{ q: string; a: string }> {
+function getFaqItems(
+  slug: ProductSlug,
+  locale: Locale,
+  messages: Messages,
+): Array<{ q: string; a: string }> {
   const commonFr = [
+    {
+      q: messages.pdp.packagingFaqQ,
+      a: messages.pdp.packagingFaqA,
+    },
     {
       q: "Est-ce que je paie en ligne ?",
       a: "Non. Vous laissez vos coordonnées, notre équipe confirme la commande par téléphone, puis vous payez à la réception du colis.",
@@ -248,6 +256,10 @@ function getFaqItems(slug: ProductSlug, locale: Locale): Array<{ q: string; a: s
     },
   ];
   const commonAr = [
+    {
+      q: messages.pdp.packagingFaqQ,
+      a: messages.pdp.packagingFaqA,
+    },
     {
       q: "هل أدفع عبر الإنترنت؟",
       a: "لا. تتركون معلوماتكم، يؤكد الفريق الطلب عبر الهاتف، وتدفعون عند استلام الطرد.",

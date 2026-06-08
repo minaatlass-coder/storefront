@@ -199,6 +199,11 @@ export const fr = {
     ctaAdd: "Ajouter au panier",
     ctaSeeAll: "Comparer les 3 rituels",
     ctaMicro: "Ajout au panier sans paiement en ligne · un agent confirme votre commande par téléphone.",
+    packagingNotice:
+      "Routine sélectionnée par Sahhaonline — livraison avec l'emballage d'origine du fabricant partenaire. L'étiquette sur le flacon peut différer des visuels du site ; composition et posologie selon l'étiquette reçue.",
+    packagingFaqQ: "Le flacon reçu est-il identique aux photos ?",
+    packagingFaqA:
+      "Les visuels présentent la routine (ex. VitalStride, RestWave, FloraEase). À la livraison, vous recevez le complément de notre fabricant partenaire, avec son emballage d'origine. La composition indiquée sur cette page décrit la formule sélectionnée — vérifiez toujours l'étiquette du produit reçu.",
     orderStepsKicker: "Commande simple",
     orderStepsTitle: "Comment se passe la commande ?",
     step1Title: "Vous ajoutez au panier",
